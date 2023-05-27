@@ -132,17 +132,16 @@ function display_apps_list_handler( $atts ) {
 	// Build HTML table.
 	$html  = ! empty( $info ) ? '<span class="info-message">' . $info . '</span>' : '';
 	$html .= '<table>';
-	$html .= '<tr>';
-	$html .= '<th>Casino</th>
-    <th>Bonus</th>
-    <th>Features</th>
-    <th>Play</th>
-    <th>Position</th>';
-	$html .= '</tr>';
+	$html .= '<thead><tr>';
+	$html .= '<th class="casino-head">Casino</th>
+        <th class="bonus-head">Bonus</th>
+        <th class="features-head">Features</th>
+        <th class="play-head">Play</th>';
+	$html .= '</tr></thead><tbody>';
 	foreach ( $get_app_lists as $app ) {
 		$html       .= '<tr>';
-		$html       .= '<td><img src=' . esc_url( $app['logo'] ) . '/><a href="' . site_url( $app['brand_id'], 'https' ) . '">Review</a></td>';
-		$html       .= '<td class="bonus"><div class="star-rating">';
+		$html       .= '<td><div class="wrap-data"><img src=' . esc_url( $app['logo'] ) . '/><a href="' . site_url( $app['brand_id'], 'https' ) . '" class="review-link">Review</a></div></td>';
+		$html       .= '<td><div class="wrap-data bonus"><div class="star-rating">';
 		$filled_star = $app['info']['rating'];
 		while ( $filled_star >= 1 ) {
 			$html .= '<span class="fa fa-star checked"></span>';
@@ -150,20 +149,19 @@ function display_apps_list_handler( $atts ) {
 		}
 		$unfilled_star = 5 - $app['info']['rating'];
 		while ( $unfilled_star >= 1 ) {
-			$html .= '<span class="fa fa-star"></span>';
+			$html .= '<span class="fa fa-star-o"></span>';
 			$unfilled_star--;
 		}
-		$html .= '</div><span>' . $app['info']['bonus'] . '</span></td>';
-		$html .= '<td><ul class="text-left">';
+		$html .= '</div><span>' . $app['info']['bonus'] . '</span></div></td>';
+		$html .= '<td><div class="wrap-data features"><ul class="text-left">';
 		foreach ( $app['info']['features'] as $app_feature ) {
-			$html .= '<li class="feature">' . $app_feature . '</li>';
+			$html .= '<li class="feature"><span class="fa fa-check-square"></span>' . $app_feature . '</li>';
 		}
-		$html .= '</ul></td>';
-		$html .= '<td><a href="' . esc_url( $app['play_url'] ) . '">PLAY NOW</a>' . $app['terms_and_conditions'] . '</td>';
-		$html .= '<td>' . $app['position'] . '</td>';
+		$html .= '</ul></div></td>';
+		$html .= '<td><div class="wrap-data play"><a href="' . esc_url( $app['play_url'] ) . '" class="play-btn">PLAY NOW</a><div class="terms-conditions">' . $app['terms_and_conditions'] . '</div></div></td>';
 		$html .= '</tr>';
 	}
-	$html .= '</table>';
+	$html .= '</tbody></table>';
 
 	// Return table HTML.
 	return $html;

@@ -1,3 +1,6 @@
+*{
+  font-family: 'Calibri', sans-serif;
+}
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -5,16 +8,61 @@ table {
   max-width: 1200px !important;
 }
 
+table thead{
+  background-color: #d29f36;
+}
+
+table thead th{
+  font-weight: 500;
+}
+
+table tbody tr{
+  border-bottom: 1px solid gray;
+}
+
+table tbody .wrap-data{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 td, th {
-  border: 1px solid #dddddd;
   text-align: center;
   padding: 8px;
+}
+
+table tbody tr .review-link{
+  color: blue;
+}
+
+table tbody .terms-conditions{
+  font-size: 12px;
 }
 
 .text-left{
     text-align: left;
 }
 
-table .bonus .checked{
-    color: orange;
+table .bonus .star-rating span{
+    color: #d29f36;
+}
+
+table .bonus span{
+  max-width: 180px;
+}
+
+table .features ul{
+  list-style-type: none;
+}
+
+table .features ul .feature span{
+  padding-right: 5px;
+}
+
+table .play .play-btn{
+  background-color: #0e6d2b;
+  color: white;
+  padding: 8px 30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
