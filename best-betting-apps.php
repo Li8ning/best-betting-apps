@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Best Betting Apps
- * Plugin URI:        https://example.com/plugins/the-basics/
+ * Plugin URI:        https://github.com/Li8ning/best-betting-apps
  * Description:       A plugin that works with a shortcode to display data from a JSON file.
  * Version:           1.0.0
  * Author:            Dharmrajsinh Jadeja
- * Author URI:        https://author.example.com/
+ * Author URI:        https://github.com/Li8ning/
  * Text Domain:       best-betting-apps
  * Domain Path:       /languages
  *
